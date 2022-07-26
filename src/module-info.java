@@ -1,4 +1,4 @@
-module XMLLib {
+module com.sterndu.XMLLib {
 	exports com.sterndu.xml;
 
 	requires java.desktop;

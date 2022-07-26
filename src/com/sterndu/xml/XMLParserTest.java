@@ -18,6 +18,7 @@ class XMLParserTest {
 	+ "		<group_states/>" + System.lineSeparator() + "	</group>" + System.lineSeparator()
 	+ "</microprocessor>";
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		try {
 			System.out

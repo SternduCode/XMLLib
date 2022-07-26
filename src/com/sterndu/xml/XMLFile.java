@@ -5,7 +5,6 @@ import org.w3c.dom.Document;
 public class XMLFile {
 
 	private List<XMLComponent> components;
-	private List<String> list;
 
 	XMLFile() {
 	}
@@ -14,20 +13,19 @@ public class XMLFile {
 		setComponents(XMLUtil.transformtoComp(doc));
 	}
 
-	public XMLFile(List<String> list) {
-		setList(XMLUtil.check(list));
+	public XMLFile(List<XMLComponent> comp) {
+		components = new ArrayList<>();
+		components.addAll(comp);
 	}
 
 	public XMLFile(XMLComponent comp) {
 		components = new ArrayList<>();
 		components.add(comp);
-		list = XMLUtil.check(XMLUtil.convert(XMLWriter.writetoString(comp, false, false)));
 	}
 
-	public XMLFile(XMLComponent[] comp) {
+	public XMLFile(XMLComponent... comp) {
 		components = new ArrayList<>();
 		components.addAll(Arrays.asList(comp));
-		list = XMLUtil.check(XMLUtil.convert(XMLWriter.writetoString(comp, false, false)));
 	}
 
 	void setComponents(List<XMLComponent> componets) {
@@ -54,20 +52,6 @@ public class XMLFile {
 
 	public List<XMLComponent> getComponets() {
 		return components;
-	}
-
-	public List<String> getList() {
-		return list;
-	}
-
-	public void init() {
-		components = new ArrayList<>();
-		components.addAll(XMLUtil.getComponents(list));
-	}
-
-	public void setList(List<String> list) {
-		this.list = list;
-		init();
 	}
 
 	@Override
